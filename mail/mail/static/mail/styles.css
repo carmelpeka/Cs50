@@ -1,0 +1,42 @@
+textarea {
+  min-height: 400px;
+}
+.body{
+width:80%;}
+#emails-view {
+  width: 100vw;
+}
+
+.email-row {
+  display: flex;
+
+  flex-direction: row;
+  justify-content: space-between;
+  height: 40px;
+  border: 2px solid black;
+  padding: 0px;
+  width: 100vw
+}
+.email-read {
+   background-color: white;
+}
+.email-unread{
+background-color: #f2f2f2;
+}
+
+.email_recipient {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+
+}
+.element_email{
+   font-weight: bold;
+}
+hr {
+  width: 100vw;}
+
+.email-line{
+width:100vw;
+}

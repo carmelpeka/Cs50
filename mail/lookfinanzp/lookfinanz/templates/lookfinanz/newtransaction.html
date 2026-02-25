@@ -1,0 +1,44 @@
+{% extends "lookfinanz/layout.html" %}
+{% load static %}
+
+{% block body %}
+<div id="newtransaction">
+
+<form  action="{% url 'newtransaction' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <input class="form-control" autofocus type="text" name="name" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <input class="form-control" autofocus type="text" name="description" placeholder="description">
+        </div>
+        <div class="form-group">
+            <label for="transaction_type">Type</label>
+            <select class="form-control" id="transaction_type" name="transaction_type">
+                <option value="income" id="type1">Income</option>
+                <option value="expense" id="type2">Expense</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="category">Category</label>
+            <select class="form-control" id="category" name="category">
+
+            </select>
+        </div>
+        <div class="form-group">
+           <input class="form-control" type="number" step="0.01" name="amount" placeholder="Amount">
+
+        </div>
+        <input class="btn btn-primary" type="submit" value="save">
+</form>
+        <form >
+                <div class="form-group">
+                   <input class="form-control" id="simulate_number" type="number" step="0.01" name="amount" placeholder="Amount">
+
+                </div>
+                <input id="simulate" class="btn btn-primary" type="submit" value="simulate">
+       </form>
+
+</div>
+{% endblock %}

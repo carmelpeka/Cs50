@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Auctions{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'auctions/styles.css' %}" rel="stylesheet">
+    </head>
+    <body>
+    <h1> Bid</h1>
+    <form action="{% url 'bid' auction_id %}" method="post">
+        {% csrf_token %}
+            <div class="mb-3">
+                 <label for="exampleFormControlInput1" class="form-label">price</label>
+                 <input  type="number" step="0.01" class="form-control" id="exampleFormControlInput1" placeholder="Price" name="price">
+            </div>
+            <div class="mb-3">
+                 <button type="submit" class="btn btn-primary">bid</button>
+            </div>
+    </form>
+
+    </body>
+</html>

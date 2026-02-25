@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Search</title>
+        <link rel="stylesheet" href="{% static 'google/style.css' %}">
+    </head>
+    <body>
+        <div class="link">
+            <a href="index">Google Search</a>
+        </div>
+        <div class="form-container-second">
+            <form action="https://www.google.com/search" class="search-form-second">
+               <input type="text" name="q" id="imagesearch">
+               <input type="hidden" name="udm" value="2">
+               <input type="submit" value="Google Image" id="submitimagesearch">
+            </form>
+        </div>
+         <a></a>
+    </body>
+</html>

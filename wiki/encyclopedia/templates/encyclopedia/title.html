@@ -1,0 +1,15 @@
+{% extends "encyclopedia/titlelayout.html" %}
+
+
+{% block title %}
+    {{ title|safe }}
+{% endblock %}
+
+{% block body %}
+    {% if markdown %}
+        {{ markdown|safe }}
+    {% else %}
+        <h1>Error</h1>
+        <p>The page "{{ title }}" was not found.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Auctions{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'auctions/styles.css' %}" rel="stylesheet">
+    </head>
+    <body>
+    <h1> Create Listing</h1>
+    <form action="{% url 'createlisting' %}" method="post">
+        {% csrf_token %}
+            <div class="mb-3">
+                 <label for="exampleFormControlInput1" class="form-label">Title</label>
+                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title" name="title">
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Url</label>
+                <input type="url" class="form-control" id="exampleFormControlInput" placeholder="https..." name="url">
+            </div>
+            <div class="mb-3">
+                 <label for="exampleFormControlInput1" class="form-label">price</label>
+                 <input type="number" class="form-control" id="exampleFormControlInpu" placeholder="price" name="price">
+            </div>
+
+            <div class="mb-3">
+                <select class="form-select" aria-label="Categorie"  name="categorie">
+                     <option  value="">Categorie</option>
+                    {% for categorie in categories %}
+                      <option value="{{forloop.counter0}}">{{categorie}}</option>
+                    {% endfor %}
+                </select>
+
+            </div>
+            <div class="mb-3">
+                 <button type="submit" >Create</button>
+            </div>
+    </form>
+
+    </body>
+</html>

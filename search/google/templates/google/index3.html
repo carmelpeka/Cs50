@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Search</title>
+        <link rel="stylesheet" href="{% static 'google/style.css' %}">
+    </head>
+    <body>
+        <div class="link">
+            <a href="index">Google Search</a>
+        </div>
+        <div class="form-container-tree">
+            <form action="https://www.google.com/search" class="search-form-tree">
+                <div class="field">
+                  <label><strong>all these words:</strong></label>
+                  <input type="text" name="as_q" class="search-tree">
+                </div >
+                <div class="field">
+                  <label><strong>this exact word or phrase:</strong></label>
+                  <input type="text" name="as_epq" class="search-tree">
+                </div>
+                <div class="field">
+                  <label><strong>any of these words:</strong></label>
+                  <input type="text" name="as_oq"  class="search-tree">
+                </div>
+                <div class="field">
+                  <label><strong>none of these words:</strong></label>
+                  <input type="text" name="as_eq" class="search-tree">
+                </div>
+
+                <input type="submit" value="Advanced Search" id="AdvancedSearch">
+
+            </form>
+        </div>
+         <a></a>
+    </body>
+</html>
