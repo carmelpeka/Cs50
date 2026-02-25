@@ -1,0 +1,24 @@
+.transaction_inline {
+display: flex !important;
+ flex-direction: row !important;
+ justify-content: space-between; /* espace équitable entre les enfants */
+ align-items: center; /* aligne verticalement au centre */
+ padding-top: 10px
+ flex-wrap: wrap;
+  }
+
+.card{
+     display: flex;           /* active flexbox */
+    flex-direction: column;  /* empile les enfants verticalement */
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+
+.card:hover {
+  filter: brightness(0.92);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.modal {
+  display: none;
+}

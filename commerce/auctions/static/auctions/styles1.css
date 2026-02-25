@@ -1,0 +1,62 @@
+body {
+    padding: 10px;
+}
+
+.a {
+    display: flex;             /* active Flexbox */
+    flex-direction: row;       /* alignement horizontal */
+    gap: 20px;                 /* espace entre image et texte */
+    height:300px ; /* empêche le passage à la ligne */
+    width: 100vw;               /* occupe toute la largeur */
+       /* important pour inclure padding dans largeur */
+}
+
+.b {
+    flex-shrink: 0;            /* empêche l'image de rétrécir */
+    width: 400px;              /* largeur fixe de l'image */
+    height: 300px;             /* hauteur fixe de l'image */
+}
+
+.c {
+    flex: 1;                   /* prend tout le reste de l'espace */
+
+    width:auto;
+    background-color: #F5F5DC;
+}
+
+
+
+.hover-darken {
+    transition: filter 0.3s ease; /* transition douce */
+}
+
+.hover-darken:hover {
+    filter: brightness(85%);       /* assombrit légèrement tout le contenu */
+    cursor: pointer;               /* optionnel, change le curseur */
+}
+
+.big{
+    display: flex;             /* active Flexbox */
+    flex-direction: column;       /* alignement horizontal */
+    gap: 20px;                 /* espace entre image et texte */
+    height:300px;  /* empêche le passage à la ligne */
+    width: 100vw;
+      }
+.man{
+    display:flex;
+    flex-direction:column;
+    width: 100vw;}
+
+.container-fluid{
+display:flex;
+flex-direction:row;
+background-color: #d2b48c;
+height:30px;
+width: 100vw;
+gap:5px;
+justify-content: flex-end;
+align-items: center;
+}
+.right{
+    margin-left: auto;
+}

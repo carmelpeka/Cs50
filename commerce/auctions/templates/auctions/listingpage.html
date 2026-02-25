@@ -1,0 +1,120 @@
+{% extends "auctions/layout1.html" %}
+
+
+{% block body %}
+
+ <h2>Active Listings</h2>
+
+
+   <div class="big">
+
+
+       <div><h1>{{ auction.title }}</h1></div>
+       {% if not auction.status %}
+               {% if not is_auction_author %}
+                   {% if is_highest_bid %}
+                     <h2 style="color: green;">Congratulations , the item is yours.</h2>
+                   {% else %}
+                      <h2 style="color: red;">sorry, the item is for another person.</h2>
+                   {% endif %}
+               {% else %}
+                 <h2 style="color: green;">auction remove</h2>
+               {% endif %}
+
+       {% endif %}
+           <div class="man">
+                 <div class="big">
+
+
+                        <div class="a">
+                            <div class="b">
+                                {% if auction.url %}
+                                    <figure class="figure">
+                                       <img src="{{auction.url}}" class="auction-card-link" width="400" height="300">
+                                       <figcaption class="figure-caption">image</figcaption>
+                                    </figure>
+                                {% endif %}
+                            </div>
+                            <div class="c">
+                                  <div>
+                                      <p>{{auction.price}}$</p>
+                                  </div>
+                                  <div>
+                                      <p>{{auction.description}}</p>
+                                  </div>
+
+                            </div>
+                        </div>
+
+
+                 </div>
+                  <div class="container-fluid">
+
+                          <div>
+                              <form action="{% url 'listingpage' auction.id %}" method="post">
+                                     {% csrf_token %}
+
+                                    <button type="submit" name="add" >Add</button>
+                              </form>
+                          </div>
+                          <div>
+                              <form action="{% url 'listingpage' auction.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button  type="submit" name="remove" >Remove</button>
+                              </form>
+                          </div>
+                          {% if not is_auction_author %}
+                              {% if auction.status %}
+                                  <div>
+                                      <form action="{% url 'listingpage' auction.id %}" method="post">
+                                             {% csrf_token %}
+
+                                            <button  type="submit" name="bid" >Bid</button>
+
+                                      </form>
+                                  </div>
+                              {% endif %}
+                          {% endif %}
+                          {% if is_auction_author %}
+                              <div>
+                                  <form action="{% url 'listingpage' auction.id %}" method="post">
+                                         {% csrf_token %}
+                                        <button  type="submit" name="close" >close</button>
+                                  </form>
+                              </div>
+                          {% endif %}
+
+                  </div>
+                  <div class="container mt-5">
+                      <h2>Comment</h2>
+                      <form method="POST" action="{% url 'listingpage' auction.id %}">
+                          {% csrf_token %}
+                        <div class="mb-3">
+                          <textarea class="form-control" name="comment" rows="3" placeholder="Écrivez ici..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                      </form>
+
+                      <hr>
+
+                      <div id="commentairesList">
+                        {% for c in comment_list %}
+                          <div class="mb-2">{{ c }}</div>
+                        {% endfor %}
+                      </div>
+                  </div>
+
+
+
+
+
+           </div>
+
+       </div>
+
+
+
+   </div>
+
+
+{% endblock %}

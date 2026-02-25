@@ -1,0 +1,58 @@
+{% extends "lookfinanz/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<div id="alltransaction">
+    <div class="row">
+        {% if user.is_authenticated %}
+         <div class="sidebar col-lg-2 col-md-3">
+             <form action="{% url 'index' %}" method="get">
+                 <div class="form-group">
+
+                   <p>{{ form.begin.label_tag }}<br>{{ form.begin }}</p>
+                   <p>{{ form.end.label_tag }}<br>{{ form.end }}</p>
+                </div>
+                 <div class="form-group">
+                    <label >type</label>
+                    <select class="form-control" id="transaction_type_index">
+                        <option value="income" >Income</option>
+                        <option value="expense" >Expense</option>
+                        <option value="all" >All</option>
+                    </select>
+                 </div>
+                 <div class="form-group" >
+                    <label >category</label>
+                    <select class="form-control" id="category_index">
+                    </select>
+                 </div>
+                 <button id="filter_button">select</button>
+             </form>
+
+         </div>
+        <div class="main col-lg-10 col-md-9" id="transaction_select_filter_oder_all">
+
+                {% for transaction in all_transaction %}
+                <div class="card">
+                    <div class="transaction_inline">
+                    <div><p>{{transaction.name}}</p></div>
+                    <div><p>{{transaction.description}}</p></div>
+                    {% if transaction.transaction_type == "income" %}
+                        <p style="color: green;">{{ transaction.amount }}</p>
+                    {% else %}
+                        <p style="color: red;">-{{transaction.amount }}</p>
+                    {% endif %}
+                    <div><p>{{transaction.transaction_type}}</p></div>
+                    <div><p>{{transaction.category}}</p></div>
+                    <div><p>{{transaction.date}}</p></div>
+                    </div>
+                    <div id="modal" class="modal">
+                    </div>
+                </div>
+                 {% endfor %}
+        </div>
+      {% endif %}
+     </div>
+
+</div>
+{% endblock %}

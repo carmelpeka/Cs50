@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Search</title>
+        <link rel="stylesheet" href="{% static 'google/style.css' %}" >
+    </head>
+    <body>
+        <div class="beideslink">
+            <a href="index2">Google image</a>
+            <a href="index3">AdvancedSearch</a>
+        </div>
+       <div class="form-container-first">
+            <form action="https://www.google.com/search" class="search-form">
+                <div class="vertical-first">
+                    <input type="text" id="search-first"  name="q">
+                    <div class="submit-first">
+                       <input type="submit" id="submitsearch-first" value="Google Search">
+                       <input type="submit" id="submitfeeling-first" name="btnI" value="I’m Feeling Lucky">
+
+                   </div>
+                </div>
+            </form>
+        </div>
+        <a></a>
+    </body>
+
+</html>

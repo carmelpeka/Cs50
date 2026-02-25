@@ -1,0 +1,60 @@
+{% extends "auctions/layout.html" %}
+
+
+<h2>Active Listings</h2>
+
+{% block body %}
+
+<h2>Active Listings</h2>
+
+{% if Auction_liste %}
+
+
+
+
+          {% for auction in Auction_liste %}
+              {% if not auction.status %}
+                   <a href="{% url 'listingpage' auction.id %}" class="text-decoration-none text-dark">
+                       <div class="big">
+
+                            <div><h1>{{ auction.title }}</h1></div>
+                             <div class="card hover-darken" style="width: 18rem;">
+
+
+                                    <div class="a">
+                                                        <div class="b">
+                                                            {% if auction.url %}
+                                                                <figure class="figure">
+                                                                   <img src="{{auction.url}}" class="auction-card-link" width="300" height="200">
+                                                                   <figcaption class="figure-caption">image</figcaption>
+                                                                </figure>
+                                                            {% endif %}
+                                                        </div>
+                                                        <div class="c">
+                                                              <div>
+                                                                  <p>{{auction.price}}$</p>
+                                                              </div>
+                                                              <div>
+                                                                  <p>{{auction.description}}</p>
+                                                              </div>
+
+                                                        </div>
+                                    </div>
+
+
+
+
+                             </div>
+
+                       </div>
+                   </a>
+              {% endif %}
+          {% endfor %}
+
+      </div>
+
+{% else %}
+    <p>Aucune enchère disponible.</p>
+{% endif %}
+
+{% endblock %}
